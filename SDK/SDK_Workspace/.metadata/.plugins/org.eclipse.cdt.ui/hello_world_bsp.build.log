@@ -1,0 +1,6 @@
+09:50:07 **** Auto Build of project hello_world_bsp ****
+make -k all 
+'Finished building libraries'
+
+09:50:08 Build Finished (took 278ms)
+
