@@ -115,6 +115,7 @@
  *
  */
 XStatus MY_PERIPHERAL_SelfTest(void * baseaddr_p);
+void MY_PERIPHERAL_ClearScreen();
 /**
 *  Defines the number of registers available for read and write*/
 #define TEST_AXI_LITE_USER_NUM_REG 1

@@ -11,4 +11,4 @@
 #include "my_peripheral.h"
 
 /************************** Function Definitions ***************************/
-
+void MY_PERIPHERAL_ClearScreen(){xil_printf("%c[2J",27);}
