@@ -6,8 +6,8 @@ xc6slx45fgg676-2 -intstyle silent -i -sd .. system_clock_generator_0_wrapper.ngc
 ../system_clock_generator_0_wrapper
 
 Reading NGO file
-"D:/ra207-2016/lab3/lab3/implementation/clock_generator_0_wrapper/system_clock_g
-enerator_0_wrapper.ngc" ...
+"D:/ra207-2016/lab3/implementation/clock_generator_0_wrapper/system_clock_genera
+tor_0_wrapper.ngc" ...
 
 Partition Implementation Status
 -------------------------------

@@ -61,12 +61,12 @@ PORT reset_n_i="", DIR=I, SIGIS=RST
 PORT vga_hsync_o="", DIR=O
 PORT vga_vsync_o="", DIR=O
 PORT blank_o="", DIR=O
-PORT pix_clock_o="". DIR=O
+PORT pix_clock_o="", DIR=O
 PORT psave_o="", DIR=O
 PORT sync_o="", DIR=O
 PORT red_o="", DIR=O, VEC=[7:0]
 PORT green_o="", DIR=O, VEC=[7:0]
-PORT blue_o="", DIR=0, VEC=[7:0]
+PORT blue_o="", DIR=O, VEC=[7:0]
 PORT direct_mode_i="", DIR=I
 PORT display_mode_i="", DIR=I, VEC=[1:0]
 
