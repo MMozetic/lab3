@@ -110,6 +110,8 @@ entity user_logic is
 			red_o          : out std_logic_vector(7 downto 0);
 			green_o        : out std_logic_vector(7 downto 0);
 			blue_o         : out std_logic_vector(7 downto 0);
+			direct_mode_i  : in std_logic;
+			display_mode_i : in std_logic_vector(1 downto 0);
     -- DO NOT EDIT BELOW THIS LINE ---------------------
     -- Bus protocol ports, do not add to or delete
     Bus2IP_Clk                     : in  std_logic;
@@ -158,7 +160,9 @@ architecture IMP of user_logic is
 			sync_o         : out std_logic;
 			red_o          : out std_logic_vector(7 downto 0);
 			green_o        : out std_logic_vector(7 downto 0);
-			blue_o         : out std_logic_vector(7 downto 0)
+			blue_o         : out std_logic_vector(7 downto 0);
+			direct_mode_i  : in std_logic;
+			display_mode_i : in std_logic_vector(1 downto 0)
 			);
 		end component;
 
@@ -197,7 +201,9 @@ begin
 			sync_o         =>sync_o,
 			red_o          =>red_o,
 			green_o        =>green_o,
-			blue_o         =>blue_o
+			blue_o         =>blue_o,
+			direct_mode_i  =>direct_mode_i,
+	 display_mode_i =>display_mode_i
 			); 
   
 

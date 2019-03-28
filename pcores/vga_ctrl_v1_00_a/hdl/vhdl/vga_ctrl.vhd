@@ -139,7 +139,20 @@ entity vga_ctrl is
     -- ADD USER PORTS BELOW THIS LINE ------------------
     --USER ports added here
     -- ADD USER PORTS ABOVE THIS LINE ------------------
-
+			clk_i          : in  std_logic;
+			reset_n_i      : in  std_logic;
+			-- vga
+			vga_hsync_o    : out std_logic;
+			vga_vsync_o    : out std_logic;
+			blank_o        : out std_logic;
+			pix_clock_o    : out std_logic;
+			psave_o        : out std_logic;
+			sync_o         : out std_logic;
+			red_o          : out std_logic_vector(7 downto 0);
+			green_o        : out std_logic_vector(7 downto 0);
+			blue_o         : out std_logic_vector(7 downto 0);
+			direct_mode_i  : in std_logic;
+	 display_mode_i : in std_logic_vector(1 downto 0);
     -- DO NOT EDIT BELOW THIS LINE ---------------------
     -- Bus protocol ports, do not add to or delete
     S_AXI_ACLK                     : in  std_logic;
@@ -313,7 +326,21 @@ begin
       IP2Bus_Data                    => user_IP2Bus_Data,
       IP2Bus_RdAck                   => user_IP2Bus_RdAck,
       IP2Bus_WrAck                   => user_IP2Bus_WrAck,
-      IP2Bus_Error                   => user_IP2Bus_Error
+      IP2Bus_Error                   => user_IP2Bus_Error,
+		clk_i => clk_i,
+			reset_n_i =>reset_n_i,
+			-- vga
+			vga_hsync_o =>vga_hsync_o,
+			vga_vsync_o =>vga_vsync_o,
+			blank_o    =>blank_o,
+			pix_clock_o=>pix_clock_o,
+			psave_o   =>psave_o,
+			sync_o     =>sync_o,
+			red_o      =>red_o,
+			green_o    =>green_o,
+			blue_o      =>blue_o,
+			direct_mode_i =>direct_mode_i,
+	 display_mode_i =>display_mode_i
     );
 
   ------------------------------------------
