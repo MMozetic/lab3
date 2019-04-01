@@ -61,7 +61,11 @@ entity vga_top is
     sync_o              : out std_logic;
     red_o               : out std_logic_vector(7 downto 0); 
     green_o             : out std_logic_vector(7 downto 0); 
-    blue_o              : out std_logic_vector(7 downto 0)
+    blue_o              : out std_logic_vector(7 downto 0);
+	 unit_addr :in std_logic_vector(21 downto 0);
+	 reg_we :in std_logic;
+	 text_we:in std_logic;
+	 graph_we:in std_logic
   );
 end vga_top;
 

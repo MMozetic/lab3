@@ -90,7 +90,8 @@ entity user_logic is
     -- DO NOT EDIT BELOW THIS LINE ---------------------
     -- Bus protocol parameters, do not add to or delete
     C_NUM_REG                      : integer              := 4;
-    C_SLV_DWIDTH                   : integer              := 32
+    C_SLV_DWIDTH                   : integer              := 32;
+	 C_S_AXI_ADDR_WIDTH    : integer                   := 32
     -- DO NOT EDIT ABOVE THIS LINE ---------------------
   );
   port
@@ -123,7 +124,10 @@ entity user_logic is
     IP2Bus_Data                    : out std_logic_vector(C_SLV_DWIDTH-1 downto 0);
     IP2Bus_RdAck                   : out std_logic;
     IP2Bus_WrAck                   : out std_logic;
-    IP2Bus_Error                   : out std_logic
+    IP2Bus_Error                   : out std_logic;
+	 Bus2IP_RNW            		  	  : in std_logic;
+	 Bus2IP_CS             : in std_logic;
+	 Bus2IP_Addr           : in std_logic_vector ((C_S_AXI_ADDR_WIDTH-1) downto 0)
     -- DO NOT EDIT ABOVE THIS LINE ---------------------
   );
 
@@ -179,6 +183,12 @@ architecture IMP of user_logic is
   signal slv_ip2bus_data                : std_logic_vector(C_SLV_DWIDTH-1 downto 0);
   signal slv_read_ack                   : std_logic;
   signal slv_write_ack                  : std_logic;
+  signal unit_id :std_logic_vector(1 downto 0);
+  signal global_we:std_logic;
+  signal unit_addr :std_logic_vector(21 downto 0);
+  signal reg_we :std_logic;
+  signal text_we:std_logic;
+  signal graph_we:std_logic;
 
 begin
 
@@ -203,10 +213,21 @@ begin
 			green_o        =>green_o,
 			blue_o         =>blue_o,
 			direct_mode_i  =>direct_mode_i,
-	 display_mode_i =>display_mode_i
+	 display_mode_i =>display_mode_i,
+			unit_addr=>unit_addr,
+			reg_we=>reg_we,
+			text_we=>text_we,
+			graph_we=>graph_we
+			
 			); 
   
-
+  unit_addr<=Bus2IPAddr(23 downto 2);
+  unit_id<=Bus2IPAddr(25 downto 24);
+  global_we<=Bus2IP_CS and not(Bus2IP_RNW);
+  
+  reg_we<=global_we when unit_id="00" else '0';
+  text_we<=global_we when unit_id="01" else '0';
+  graph_we<=global_we when unit_id="10" else '0';
   ------------------------------------------
   -- Example code to read/write user logic slave model s/w accessible registers
   -- 

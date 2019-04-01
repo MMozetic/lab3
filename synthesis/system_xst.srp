@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> 
 TABLE OF CONTENTS
@@ -961,6 +961,7 @@ Found no macro
 Reading core <../implementation/system_dip_switches_wrapper.ngc>.
 Reading core <../implementation/system_my_peripheral_0_wrapper.ngc>.
 Reading core <../implementation/system_vga_ctrl_0_wrapper.ngc>.
+Reading core <../implementation/char_rom_def.ngc>.
 Reading core <../implementation/system_rs232_wrapper.ngc>.
 Reading core <../implementation/system_proc_sys_reset_0_wrapper.ngc>.
 Reading core <../implementation/system_clock_generator_0_wrapper.ngc>.
@@ -975,6 +976,7 @@ Reading core <../implementation/system_my_timer_0_wrapper.ngc>.
 Reading core <../implementation/system_microblaze_0_bram_block_wrapper.ngc>.
 Loading core <system_dip_switches_wrapper> for timing and area information for instance <DIP_Switches>.
 Loading core <system_my_peripheral_0_wrapper> for timing and area information for instance <my_peripheral_0>.
+Loading core <char_rom_def> for timing and area information for instance <vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/char_rom_i/BRAM_MEM_I>.
 Loading core <system_vga_ctrl_0_wrapper> for timing and area information for instance <vga_ctrl_0>.
 Loading core <system_rs232_wrapper> for timing and area information for instance <RS232>.
 Loading core <system_proc_sys_reset_0_wrapper> for timing and area information for instance <proc_sys_reset_0>.
@@ -988,6 +990,7 @@ Loading core <system_microblaze_0_d_bram_ctrl_wrapper> for timing and area infor
 Loading core <system_debug_module_wrapper> for timing and area information for instance <debug_module>.
 Loading core <system_my_timer_0_wrapper> for timing and area information for instance <my_timer_0>.
 Loading core <system_microblaze_0_bram_block_wrapper> for timing and area information for instance <microblaze_0_bram_block>.
+INFO:Xst:1901 - Instance B6 in unit vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/char_rom_i/BRAM_MEM_I of type RAMB16_S9 has been replaced by RAMB16BWER
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -1054,8 +1057,8 @@ Top Level Output File Name         : system.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 4145
-#      GND                         : 16
+# BELS                             : 4147
+#      GND                         : 17
 #      INV                         : 100
 #      LUT1                        : 266
 #      LUT2                        : 263
@@ -1068,7 +1071,7 @@ Primitive and Black Box Usage:
 #      MUXCY                       : 432
 #      MUXCY_L                     : 165
 #      MUXF7                       : 170
-#      VCC                         : 9
+#      VCC                         : 10
 #      XORCY                       : 444
 # FlipFlops/Latches                : 2596
 #      FD                          : 240
@@ -1085,9 +1088,9 @@ Primitive and Black Box Usage:
 #      FDSE                        : 49
 #      LD                          : 1
 #      ODDR2                       : 1
-# RAMS                             : 36
+# RAMS                             : 37
 #      RAM32M                      : 16
-#      RAMB16BWER                  : 20
+#      RAMB16BWER                  : 21
 # Shift Registers                  : 141
 #      SRL16                       : 2
 #      SRL16E                      : 34
@@ -1103,10 +1106,9 @@ Primitive and Black Box Usage:
 #      DCM_SP                      : 1
 # DSPs                             : 5
 #      DSP48A1                     : 5
-# Others                           : 4
+# Others                           : 3
 #      AND2B1L                     : 1
 #      BSCAN_SPARTAN6              : 1
-#      char_rom_def                : 1
 #      PLL_ADV                     : 1
 
 Device utilization summary:
@@ -1135,8 +1137,8 @@ IO Utilization:
  Number of bonded IOBs:                  55  out of    358    15%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:               20  out of    116    17%  
-    Number using Block RAM only:         20
+ Number of Block RAM/FIFO:               21  out of    116    18%  
+    Number using Block RAM only:         21
  Number of BUFG/BUFGCTRLs:                5  out of     16    31%  
  Number of DSP48A1s:                      5  out of     58     8%  
  Number of PLL_ADVs:                      1  out of      4    25%  
@@ -1163,7 +1165,7 @@ Clock Information:
 Clock Signal                                                                                                                                                                                     | Clock buffer(FF name)                                                                                             | Load  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-------+
 CLK_P                                                                                                                                                                                            | PLL_ADV:CLKOUT0                                                                                                   | 2376  |
-vga_ctrl_0_clk_i_pin                                                                                                                                                                             | DCM_SP:CLKFX                                                                                                      | 150   |
+vga_ctrl_0_clk_i_pin                                                                                                                                                                             | DCM_SP:CLKFX                                                                                                      | 151   |
 vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/display_mode_i[1]_display_mode_i[1]_OR_30_o(vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/display_mode_i[1]_display_mode_i[1]_OR_30_o1:O)| NONE(*)(vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/active_pixel_s)                                        | 1     |
 debug_module/debug_module/drck_i                                                                                                                                                                 | BUFG                                                                                                              | 209   |
 debug_module/Ext_JTAG_UPDATE                                                                                                                                                                     | NONE(microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Use_Debug_Logic.Master_Core.Debug_Perf/command_reg_0)| 43    |
@@ -1221,7 +1223,7 @@ Delay:               9.357ns (Levels of Logic = 7)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'vga_ctrl_0_clk_i_pin'
   Clock period: 11.786ns (frequency: 84.846MHz)
-  Total number of paths / destination ports: 26313 / 463
+  Total number of paths / destination ports: 26322 / 472
 -------------------------------------------------------------------------
 Delay:               12.729ns (Levels of Logic = 3)
   Source:            vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/vga_i/vga_sync_i/v_count_r_8 (FF)
@@ -1345,7 +1347,7 @@ Offset:              3.404ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/display_mode_i[1]_display_mode_i[1]_OR_30_o'
-  Total number of paths / destination ports: 10 / 1
+  Total number of paths / destination ports: 2 / 1
 -------------------------------------------------------------------------
 Offset:              2.620ns (Levels of Logic = 3)
   Source:            vga_ctrl_0_display_mode_i_pin<1> (PAD)
@@ -1450,7 +1452,7 @@ Offset:              5.415ns (Levels of Logic = 7)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'vga_ctrl_0_clk_i_pin'
-  Total number of paths / destination ports: 38 / 38
+  Total number of paths / destination ports: 29 / 29
 -------------------------------------------------------------------------
 Offset:              4.380ns (Levels of Logic = 2)
   Source:            vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/vga_i/vga_sync_i/red_r_7 (FF)
@@ -1566,7 +1568,7 @@ Clock to Setup on destination clock vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga
                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------+---------+---------+---------+---------+
-vga_ctrl_0_clk_i_pin|         |         |    3.361|         |
+vga_ctrl_0_clk_i_pin|         |         |    4.563|         |
 --------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock vga_ctrl_0_clk_i_pin
@@ -1582,13 +1584,13 @@ vga_ctrl_0_clk_i_pin                                                            
 
 
 Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.81 secs
+Total CPU time to Xst completion: 11.71 secs
  
 --> 
 
-Total memory usage is 308512 kilobytes
+Total memory usage is 314160 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    5 (   0 filtered)
-Number of infos    :  868 (   0 filtered)
+Number of infos    :  869 (   0 filtered)
 

@@ -2555,6 +2555,9 @@
 <msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">axi4lite_0_S_AWLOCK&lt;1&gt;</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">B6</arg> in unit <arg fmt="%s" index="2">vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/char_rom_i/BRAM_MEM_I</arg> of type <arg fmt="%s" index="3">RAMB16_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16BWER</arg>
+</msg>
+
 <msg type="info" file="Xst" num="2260" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">DIP_Switches/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/cs_out_i_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DIP_Switches</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;DIP_Switches/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/cs_out_i_0_1&gt; </arg>
 </msg>
 

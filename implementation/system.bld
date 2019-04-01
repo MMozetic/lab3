@@ -12,6 +12,7 @@ Loading design module
 "D:/ra207-2016/lab3/implementation/system_my_peripheral_0_wrapper.ngc"...
 Loading design module
 "D:/ra207-2016/lab3/implementation/system_vga_ctrl_0_wrapper.ngc"...
+Loading design module "D:/ra207-2016/lab3/implementation/char_rom_def.ngc"...
 Loading design module
 "D:/ra207-2016/lab3/implementation/system_rs232_wrapper.ngc"...
 Loading design module
@@ -59,6 +60,13 @@ Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file "system.ucf" ...
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/char_rom_i/BRAM_MEM_I/B6/
+   RAMB16BWER' of type RAMB16BWER has been changed from 'SPARTAN3ADSP' to
+   'SPARTAN6' to correct post-ngdbuild and timing simulation for this primitive.
+    In order for functional simulation to be correct, the value of SIM_DEVICE
+   should be changed in this same manner in the source netlist or constraint
+   file.
 Resolving constraint associations...
 Checking Constraint Associations...
 WARNING:ConstraintSystem:135 - Constraint <INST
@@ -84,12 +92,6 @@ Done...
 Processing BMM file "system.bmm" ...
 
 Checking expanded design ...
-ERROR:NgdBuild:604 - logical block
-   'vga_ctrl_0/vga_ctrl_0/USER_LOGIC_I/top_i/vga_top_i/char_rom_i/BRAM_MEM_I'
-   with type 'char_rom_def' could not be resolved. A pin name misspelling can
-   cause this, a missing edif or ngc file, case mismatch between the block name
-   and the edif or ngc file name, or the misspelling of a type name. Symbol
-   'char_rom_def' is not supported in target 'spartan6'.
 WARNING:NgdBuild:443 - SFF primitive
    'microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Decode_I/Using_FPGA.
    Gen_Bits[27].MEM_EX_Result_Inst' has unconnected output pin
@@ -102,14 +104,13 @@ Partition Implementation Status
 -------------------------------
 
 NGDBUILD Design Results Summary:
-  Number of errors:     1
-  Number of warnings:   5
+  Number of errors:     0
+  Number of warnings:   6
 
-Total memory usage is 214192 kilobytes
+Total memory usage is 216960 kilobytes
 
-Total REAL time to NGDBUILD completion:  32 sec
+Writing NGD file "system.ngd" ...
+Total REAL time to NGDBUILD completion:  33 sec
 Total CPU time to NGDBUILD completion:   32 sec
-
-One or more errors were found during NGDBUILD.  No NGD file will be written.
 
 Writing NGDBUILD log file "system.bld"...

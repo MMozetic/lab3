@@ -35,7 +35,11 @@ entity top is
     green_o        : out std_logic_vector(7 downto 0);
     blue_o         : out std_logic_vector(7 downto 0);
 	 direct_mode_i  : in std_logic;
-	 display_mode_i : in std_logic_vector(1 downto 0)
+	 display_mode_i : in std_logic_vector(1 downto 0);
+	 unit_addr :in std_logic_vector(21 downto 0);
+	 reg_we :in std_logic;
+	 text_we:in std_logic;
+	 graph_we:in std_logic
    );
 end top;
 
@@ -102,7 +106,7 @@ architecture rtl of top is
       sync_o              : out std_logic;
       red_o               : out std_logic_vector(7 downto 0);
       green_o             : out std_logic_vector(7 downto 0);
-      blue_o              : out std_logic_vector(7 downto 0)
+      blue_o              : out std_logic_vector(7 downto 0);
     );
   end component;
   
@@ -255,8 +259,11 @@ begin
     sync_o             => sync_o,
     red_o              => red_o,
     green_o            => green_o,
-    blue_o             => blue_o
-  );
+    blue_o             => blue_o,
+	 unit_addr =>unit_addr,
+	 reg_we =>reg_we,
+	 text_we=>text_we,
+	 graph_we=>graph_we  );
   
   -- na osnovu signala iz vga_top modula dir_pixel_column i dir_pixel_row realizovati logiku koja genereise
   --dir_red
